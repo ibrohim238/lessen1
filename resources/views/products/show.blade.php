@@ -14,7 +14,7 @@
     <a href="{{ route('products.edit', $product) }}">
         Редактировать товар
     </a>
-    <form method="POST" action="{{ route('products.update', $product) }}">
+    <form method="POST" action="{{ route('products.destroy', $product) }}">
         @csrf
         @method('DELETE')
         <button>
