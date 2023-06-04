@@ -8,6 +8,16 @@
     <title>Document</title>
 </head>
 <body>
+    @if(Auth::check())
+        <a href="{{ route('logout') }}">
+            Выйти
+        </a>
+    @else
+        <a href="{{ route('login') }}">
+            Авторизоваться
+        </a>
+    @endif
+
     Че то там
     <a href="{{ route('products.create') }}">
         Добавить товар
@@ -30,6 +40,16 @@
             </a>
         @endforeach
     </div>
+    @if(Session::has('error'))
+        <div style="background: #ef4444">
+            {{ Session::get('error') }}
+        </div>
+    @endif
+    @if(Session::has('success'))
+        <div style="background: lime">
+            {{ Session::get('success') }}
+        </div>
+    @endif
 
 </body>
 </html>
